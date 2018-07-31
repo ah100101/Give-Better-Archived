@@ -18,8 +18,6 @@ workbox.routing.registerRoute(
   workbox.strategies.staleWhileRevalidate()
 )
 
-// tits
-
 // self.addEventListener('push', (event) => {
 //   const title = 'Get Started With Workbox'
 //   const options = {
@@ -54,76 +52,76 @@ workbox.precaching.precacheAndRoute([
     "revision": "80f71ce3df1f11aebcf884929047239a"
   },
   {
+    "url": "dist/app.6cd39340287a410dc43d.js",
+    "revision": "353c240554ae5b90d3c6dbe74992b9bd"
+  },
+  {
     "url": "dist/app.c2cb614e2e42cc10ae8f0bcb30367095.css",
     "revision": "c2cb614e2e42cc10ae8f0bcb30367095"
   },
   {
-    "url": "dist/app.f7832f6368b47dbf1afb.js",
-    "revision": "0495fdd9167083c12c37fbc1ece94988"
-  },
-  {
     "url": "dist/index.spa.html",
-    "revision": "465c703a571e1e58a5916795adc3e21c"
+    "revision": "753bbb51928fbe1eb59fbd425513b42f"
   },
   {
     "url": "dist/index.ssr.html",
     "revision": "744fb1c184ce0e85af057191b683d6a2"
   },
   {
-    "url": "dist/layouts_default.d2f6649f47e3d7857790.js",
-    "revision": "5d2cba1187179ffe6b933ed7fe2fb919"
+    "url": "dist/layouts_default.429246ab62e82e6b8d02.js",
+    "revision": "95c5352bf72f5fe342f9e55478cdcc0e"
   },
   {
-    "url": "dist/manifest.f2d1f3ac363c381bd066.js",
-    "revision": "93d418456352cbb6261a80a207f678b2"
+    "url": "dist/manifest.34e1b515a937e084f7ed.js",
+    "revision": "ae76d17e4079fe9d8c36e10843270766"
   },
   {
-    "url": "dist/pages_account.571d673696081066b195.js",
-    "revision": "fb3bb94659e13280a393acd283dd46ac"
+    "url": "dist/pages_account.d31fd830bb41d9f67fb3.js",
+    "revision": "c902edbaac91a6f06d4e7c277fcdb9c5"
   },
   {
-    "url": "dist/pages_add.d341f6ce9574210004ee.js",
-    "revision": "cde0efb667ee351c00e60756c181cd6e"
+    "url": "dist/pages_add.32697c7fcedb4355a0e3.js",
+    "revision": "a768cd4b8d6f29133b1d4c254d708d22"
   },
   {
-    "url": "dist/pages_change-password.99470d67aa63a9a94ad5.js",
-    "revision": "c83e4685e0636fd02b6b55de40a06347"
+    "url": "dist/pages_change-password.7f0a297974d27b326e0f.js",
+    "revision": "bc0da23abf2d7e3c14aa2d484ee5fa9f"
   },
   {
-    "url": "dist/pages_feed.36bc950b3b8798e97d30.js",
-    "revision": "f8f8e9907804877b06326245f8c7c7ad"
+    "url": "dist/pages_feed.9673539dc4c26ac19d03.js",
+    "revision": "b2506e92f77694b9c7b086339cc64d21"
   },
   {
-    "url": "dist/pages_forgot-password.7ef52ea8ba98f7b60725.js",
-    "revision": "1cec6a8d446b2e1af6d375f6558910cf"
+    "url": "dist/pages_forgot-password.db3850aae5b2a804141d.js",
+    "revision": "8198343991728359fc877266dd5e8610"
   },
   {
-    "url": "dist/pages_friends.e9b9acfe940fe4685305.js",
-    "revision": "680c6ca4017902bd10b77118d8b20d19"
+    "url": "dist/pages_friends.1407b150f77a8971a2ce.js",
+    "revision": "400005818da8fea3a96c29f3f42454de"
   },
   {
-    "url": "dist/pages_index.f26f1dfc747e3ac49895.js",
-    "revision": "dc073ba5c73a3fdb8f6ed2fb5f551d35"
+    "url": "dist/pages_index.bc9a991a2f885965958d.js",
+    "revision": "707e68a1d902ba23305fc9cd5a7d6c40"
   },
   {
-    "url": "dist/pages_login.81e5199db2de66db8dbd.js",
-    "revision": "68e549e520c5dbee19ed4adcaf94d086"
+    "url": "dist/pages_login.0135a9bffb0e22e363fc.js",
+    "revision": "76e97bc4f049aa4a45186b5d1feb3d0a"
   },
   {
-    "url": "dist/pages_post.76b2499c083b2d19a73d.js",
-    "revision": "b316af0fbc9f4b12b4ba467156316cf0"
+    "url": "dist/pages_post.994dc0ea4e6fddc11a83.js",
+    "revision": "c985af4d22df7e7cc6c125988e19bab6"
   },
   {
-    "url": "dist/pages_search.1c3e0b71d22ef2ea88cf.js",
-    "revision": "47bfee24e20ad974e8ff3f1ee6d37281"
+    "url": "dist/pages_search.a7ac9b97c78f17e24cd1.js",
+    "revision": "fc10575f824ca22b23ca9285b94e925a"
   },
   {
-    "url": "dist/pages_sign-up.be000a872bfe04d1583b.js",
-    "revision": "7e44c3d91e799d200c1b409a8ef1cf7b"
+    "url": "dist/pages_sign-up.317546c3961f04217d58.js",
+    "revision": "a4022b138c6f4641fb240b36c6cb2e4e"
   },
   {
-    "url": "dist/pages_user__id.597803d42228c666d8fb.js",
-    "revision": "5259095d2b2beb08dce30e99b04ed1c8"
+    "url": "dist/pages_user__id.1e64c3d5c0a8da370a84.js",
+    "revision": "de243735ea6f955a56b50396d4bd603d"
   },
   {
     "url": "dist/vendor.c6696fb9f7f83562a954.js",
@@ -147,7 +145,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "router.js",
-    "revision": "21b34261dcb2080f953d643782c0c08f"
+    "revision": "af26bf946e96760eee18919e5c719fef"
   },
   {
     "url": "server.js",

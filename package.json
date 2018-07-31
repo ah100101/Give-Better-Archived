@@ -13,7 +13,7 @@
     "generate:sw": "workbox injectManifest",
     "generate:pwa": "npm run build && npm run generate:sw",
     "start:pwa": "npm run build && npm run generate:sw && npm run start",
-    "heroku-postbuild": "npm run build",
+    "heroku-postbuild": "npm run generate:pwa",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },

@@ -28,7 +28,7 @@
 </template>  
 
 <script>
-import badge from '~/components/feed/badge.vue'
+import badge from '~/components/feed/Badge.vue'
 import basket from '~/components/feed/Basket.vue'
 
 export default {

@@ -28,8 +28,8 @@
 </template>  
 
 <script>
-import badge from './Badge.vue'
-import basket from './Basket.vue'
+import badge from '~/components/feed/Badge.vue'
+import basket from '~/components/feed/Basket.vue'
 
 export default {
   asyncData (context) {

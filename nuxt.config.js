@@ -36,6 +36,15 @@ module.exports = {
       }
     }
   },
+  modules: [
+    '@nuxtjs/apollo',
+    '@nuxtjs/dotenv'
+  ],
+  apollo: {
+    clientConfigs: {
+      default: '~/config/apollo/default.js'
+    }
+  },
   plugins: [
     { src: '~/plugins/workbox-plugin.js', ssr: false }
   ]

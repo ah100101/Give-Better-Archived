@@ -1,16 +1,29 @@
-# Nuxt.js PWA Starter
-
-Sample Nuxt.js PWA project utilizing:
- - Server Side Rendering
- - Service workers for offline access
- - Workbox for Service Worker generation (https://developers.google.com/web/tools/workbox/)
- - Bulma for CSS
+# Give Better - Client
 
 ## Description
 
-This sample app only provides scaffolding for extension and further use. There is no database, authentication, or functionality offered outside of what's displayed.
+Give better is a server side rendered Nuxt Progressive Web application for providing users a location to post and share wishlists and view what their friends and family have listed as possible gifts
 
-The application provides an Instagram-like "clone" as a starting point for development.
+## Stack
+
+This project is only for the client implementation of the progressive web app. This app utilizes:
+- Nuxt.js
+- Bulma (css)
+- Service workers for progressive web app specific functionality
+
+Give Better is hosted on Heroku
+
+## Integrations
+
+Give Better has 2 key integrations
+
+1) GraphCMS
+2) Firebase
+
+GraphCMS is utilized for providing a CMS for static labels and non-user provided content for the application
+
+Firebase it utilized for NoSQL databases (realtime and storage), authentication as a service, and analytics
+
 
 ## Build Setup
 
@@ -19,6 +32,7 @@ The application provides an Instagram-like "clone" as a starting point for devel
 $ npm install
 
 # serve with hot reload at localhost:3000
+# note: deletes sw.js from root
 $ npm run dev
 
 # build for production and launch server

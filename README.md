@@ -2,7 +2,7 @@
 
 ## Description
 
-Give better is a server side rendered Nuxt Progressive Web application for providing users a location to post and share wishlists and view what their friends and family have listed as possible gifts
+Give better is a server side rendered Nuxt Progressive Web App for providing users a location to post and share wishlists and view what their friends and family have listed as possible gifts
 
 ## Stack
 

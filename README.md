@@ -22,7 +22,7 @@ Give Better has 2 key integrations
 
 GraphCMS is utilized for providing a CMS for static labels and non-user provided content for the application
 
-Firebase it utilized for NoSQL databases (realtime and storage), authentication as a service, and analytics
+Firebase it utilized for a realtime NoSQL database, asset storage, authentication as a service, and analytics
 
 
 ## Build Setup

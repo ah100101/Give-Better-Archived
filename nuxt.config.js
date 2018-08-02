@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   head: {
     title: 'vue-client',
@@ -40,9 +42,11 @@ module.exports = {
     '@nuxtjs/apollo',
     '@nuxtjs/dotenv'
   ],
-  apollo: {
+  apollo: { 
     clientConfigs: {
-      default: '~/config/apollo/default.js'
+      default: {
+        httpEndpoint: process.env.GRAPHCMSAPI
+      }
     }
   },
   plugins: [

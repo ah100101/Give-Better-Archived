@@ -45,11 +45,15 @@ module.exports = {
   apollo: { 
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.GRAPHCMSAPI
+        httpEndpoint: process.env.GRAPHCMSAPI,
+        getAuth: () => 'Bearer test'
       }
     }
   },
   plugins: [
     { src: '~/plugins/workbox-plugin.js', ssr: false }
-  ]
+  ],
+  router: {
+    middleware: 'auth'
+  }
 }

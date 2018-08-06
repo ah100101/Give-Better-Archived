@@ -7,6 +7,7 @@
 import gql from 'graphql-tag'
 import AppLogo from '~/components/AppLogo.vue'
 import unauthenticatedMixin from '~/mixins/unauthenticated.js'
+import queries from '~/graphql/queries/navigation.js'
 
 const navigationQuery = gql`
   query navigations {
@@ -32,7 +33,7 @@ export default {
   apollo: {
     $loadingKey: 'loading',
     navigations: {
-      query: navigationQuery
+      query: queries.published.all
     }
   },
   components: {

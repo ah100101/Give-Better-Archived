@@ -9,23 +9,6 @@ import AppLogo from '~/components/AppLogo.vue'
 import unauthenticatedMixin from '~/mixins/unauthenticated.js'
 import queries from '~/graphql/queries/navigation.js'
 
-const navigationQuery = gql`
-  query navigations {
-    navigations(where: {status:PUBLISHED}) {
-      status
-      name
-      brandLabel(where: {status:PUBLISHED}) {
-        value
-      }
-      pages(where:{status:PUBLISHED}) {
-        title
-        urlName
-        requireAuthentication
-      }
-    }
-  }
-`
-
 export default {
   data: () => ({
     loading: 0

@@ -5,7 +5,7 @@
   "author": "ah100101 <ah100101@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "npm run delete:sw && nuxt",
+    "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "build:start": "npm run build && npm run start",

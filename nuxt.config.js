@@ -39,16 +39,16 @@ module.exports = {
     }
   },
   modules: [
-    '@nuxtjs/apollo',
+    // '@nuxtjs/apollo',
     '@nuxtjs/dotenv'
   ],
-  apollo: { 
-    clientConfigs: {
-      default: {
-        httpEndpoint: process.env.GRAPHCMSAPI
-      }
-    }
-  },
+  // apollo: { 
+  //   clientConfigs: {
+  //     default: {
+  //       httpEndpoint: process.env.GRAPHCMSAPI
+  //     }
+  //   }
+  // },
   plugins: [
     { src: '~/plugins/workbox-plugin.js', ssr: false }
   ]

@@ -18,6 +18,8 @@ workbox.routing.registerRoute(
   workbox.strategies.staleWhileRevalidate()
 )
 
+// https://firestore.googleapis.com/google.firestore.v1beta1.Firestore/
+
 // self.addEventListener('push', (event) => {
 //   const title = 'Get Started With Workbox'
 //   const options = {

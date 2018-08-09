@@ -21,6 +21,7 @@
   "dependencies": {
     "@nuxtjs/dotenv": "^1.1.1",
     "bulma": "^0.7.1",
+    "firebase": "^5.3.1",
     "google-fonts-webpack-plugin": "^0.4.4",
     "graphql-tag": "^2.9.2",
     "ncp": "^2.0.0",

@@ -20,7 +20,7 @@ module.exports = {
   loading: { color: '#3B8070' },
   build: {
     vendor: [
-
+      // 'firebase'
     ],
     extractCSS: true,
     postcss: { plugins: { 'postcss-custom-properties': false } },
@@ -39,17 +39,10 @@ module.exports = {
     }
   },
   modules: [
-    // '@nuxtjs/apollo',
     '@nuxtjs/dotenv'
   ],
-  // apollo: { 
-  //   clientConfigs: {
-  //     default: {
-  //       httpEndpoint: process.env.GRAPHCMSAPI
-  //     }
-  //   }
-  // },
   plugins: [
-    { src: '~/plugins/workbox-plugin.js', ssr: false }
+    { src: '~/plugins/workbox-plugin.js', ssr: false },
+    { src: '~/plugins/firebase-plugin.js' }
   ]
 }

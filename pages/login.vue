@@ -22,6 +22,7 @@ section.container
 <script>
 import unauthenticatedMixin from '~/mixins/unauthenticated.js'
 import firebase from 'firebase/app'
+import auth from 'firebase/auth'
 
 let db = firebase.firestore()
 
@@ -32,14 +33,42 @@ export default {
       
     }
   },
+  mounted: function () {
+    // Using a redirect.
+    firebase.auth()
+      .getRedirectResult()
+      .then(function(result) {
+        if (result.credential) {
+          // This gives you a Google Access Token.
+          var token = result.credential.accessToken;
+          console.log('token: ')
+          console.log({token})
+        }
+        var user = result.user;
+        console.log('user: ')
+        console.log({user})
+    });
+  },
   methods: {
     login: function () {
-      db.collection('messages').get()
-        .then(querySnapshot => {
-          querySnapshot.forEach(doc => {
-            console.log(`${doc.id} => ${doc.data()}`)
-          })
-        })
+        // var provider = new firebase.auth.GoogleAuthProvider();
+        // provider.addScope('profile');
+        // provider.addScope('email');
+        // firebase.auth().signInWithPopup(provider)
+        //   .then(function (result) {
+        //     let token = result.credential.accessToken
+        //     let user = result.user
+        //     console.log('token: ')
+        //     console.log({token})
+        //     console.log('user: ')
+        //     console.log({user})
+        //   })
+
+        // Start a sign in process for an unauthenticated user.
+        var provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('profile');
+        provider.addScope('email');
+        firebase.auth().signInWithRedirect(provider);
     }
   },
   mixins: [

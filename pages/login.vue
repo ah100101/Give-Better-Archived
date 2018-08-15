@@ -11,9 +11,11 @@ section.container
       .control
         input.input(type="password" placeholder="")
     .panel-block
-      button.button.is-primary.is-outlined.is-fullwidth(
+      button.google(
         v-on:click='login'
-      ) Login
+      ) 
+        img(src='~/assets/images/btn_google_light_normal_ios.svg')
+        | Sign in with Google
     .panel-block.transparent
       nuxt-link.button.is-small.is-info(to='/forgot-password') Forgot?
 
@@ -23,8 +25,6 @@ section.container
 import unauthenticatedMixin from '~/mixins/unauthenticated.js'
 import firebase from 'firebase/app'
 import auth from 'firebase/auth'
-
-let db = firebase.firestore()
 
 export default {
   asyncData (context) {
@@ -70,6 +70,32 @@ export default {
 
 label {
   margin-right: .5rem;
+}
+
+.google {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  
+  background-color: white;
+  color: #363636;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+
+  -webkit-appearance: none;
+  align-items: center;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  box-shadow: none;
+  display: inline-flex;
+  justify-content: flex-start;
+  line-height: 1.5;
+  position: relative;
+  vertical-align: top;
+
+  img {
+    height: 2rem;
+  }
 }
 
 </style>

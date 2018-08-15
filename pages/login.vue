@@ -11,7 +11,9 @@ section.container
       .control
         input.input(type="password" placeholder="")
     .panel-block
-      button.button.is-primary.is-outlined.is-fullwidth Login
+      button.button.is-primary.is-outlined.is-fullwidth(
+        v-on:click='login'
+      ) Login
     .panel-block.transparent
       nuxt-link.button.is-small.is-info(to='/forgot-password') Forgot?
 
@@ -19,12 +21,24 @@ section.container
 
 <script>
 import unauthenticatedMixin from '~/mixins/unauthenticated.js'
+import firebase from 'firebase/app'
+import auth from 'firebase/auth'
+
+let db = firebase.firestore()
 
 export default {
   asyncData (context) {
     return 
     { 
       
+    }
+  },
+  mounted: function () {
+
+  },
+  methods: {
+    login: function () {
+
     }
   },
   mixins: [

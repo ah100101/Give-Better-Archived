@@ -13,7 +13,10 @@ export default {
   },
   mixins: [
     unauthenticatedMixin
-  ]
+  ],
+  mounted: function () {
+
+  }
 }
 </script>
 

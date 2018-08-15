@@ -2,7 +2,7 @@
 
 ## Description
 
-Give better is a server side rendered Nuxt Progressive Web application for providing users a location to post and share wishlists and view what their friends and family have listed as possible gifts
+Give better is a server side rendered Nuxt Progressive Web App for providing users a location to post and share wishlists and view what their friends and family have listed as possible gifts
 
 ## Stack
 
@@ -22,7 +22,7 @@ Give Better has 2 key integrations
 
 GraphCMS is utilized for providing a CMS for static labels and non-user provided content for the application
 
-Firebase it utilized for NoSQL databases (realtime and storage), authentication as a service, and analytics
+Firebase it utilized for a realtime NoSQL database, asset storage, authentication as a service, and analytics
 
 
 ## Build Setup

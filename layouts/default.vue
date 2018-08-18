@@ -1,5 +1,5 @@
 <template lang='pug'>
-  div
+  div(v-cloak)
     topnav
     nuxt
 </template>

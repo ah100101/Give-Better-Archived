@@ -5,19 +5,19 @@ section.container
     .panel-block.login-buttons
       p
         button.google(
-          v-on:click='login'
+          v-on:click='googleLogin()'
         ) 
           img(src='~/assets/images/btn_google_light_normal_ios.svg')
           | Sign in with Google
       p
         button.facebook(
-          v-on:click='facebook'
+          v-on:click='facebookLogin()'
         )
           img(src='~/assets/images/btn_fb_normal.svg')
-          | Log in With Facebook
+          | Log in with Facebook
       p
         button.twitter(
-          v-on:click='facebook'
+          v-on:click='twitterLogin()'
         )
           img(src='~/assets/images/Twitter_Logo_WhiteOnBlue.svg')
           | Sign in with Twitter
@@ -26,6 +26,7 @@ section.container
 
 <script>
 import unauthenticatedMixin from '~/mixins/unauthenticated.js'
+import localforage from 'localforage'
 import firebase from 'firebase/app'
 import auth from 'firebase/auth'
 
@@ -33,15 +34,93 @@ export default {
   asyncData (context) {
     return 
     { 
-      
+      localUser: undefined
     }
   },
   mounted: function () {
+    this.handleAuthRedirect()
+    this.checkLocalUser()
 
+    // var user = firebase.auth().currentUser;
+
+    // console.log('current user:')
+    // console.log(user)
   },
   methods: {
-    login: function () {
+    googleLogin: function () {
+      var googleProvider = new firebase.auth.GoogleAuthProvider()
+      googleProvider.addScope('profile')
+      googleProvider.addScope('email')
 
+      firebase.auth()
+        .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+        .then(() => {
+          firebase.auth().signInWithRedirect(googleProvider)
+        })
+        .catch(console.error)
+    },
+    facebookLogin: function () {
+
+    },
+    twitterLogin: function () {
+
+    },
+    handleAuthRedirect: function () {
+      firebase
+        .auth()
+        .getRedirectResult()
+        .then(function(result) {
+          if (!result || !result.credential || !result.user) {
+            console.error('Login failed!')
+            return
+          }
+
+          localforage
+            .setItem('givebetter-auth-token', result.credential.accessToken)
+            .catch(console.error)
+          
+          localforage
+            .setItem('givebetter-auth-user', JSON.stringify(result.user))
+            .catch(console.error)
+
+          // todo set vuex state
+
+        })
+        .catch(console.error)
+    },
+    checkLocalUser: function () {
+      // TODO: check if current user is valid / authenticated
+      // if current user is not present then get values from local storage
+      // and attempt to login
+
+      let state = this
+      Promise.all([
+        localforage.getItem('givebetter-auth-token'),
+        localforage.getItem('givebetter-auth-user')
+        ])
+        .then(values => {
+          if (!values[0] || !values[1]) {
+            console.error('Local user values not retrieved.')
+          }
+
+          // TODO: once you have local values, try signing in
+          // only continue if you have a valid token response
+          // firebase.auth().signInWithCustomToken(token)
+
+          state.localUser = {
+            token: values[0],
+            user: JSON.parse(values[1])
+          }
+          console.log(state.localUser)
+          firebase.auth()
+            .signInWithCustomToken(values[0])
+            .then(result => {
+              console.log('local token login result')
+            })
+            .catch(console.error)
+          
+        })
+        .catch(console.error)
     }
   },
   mixins: [

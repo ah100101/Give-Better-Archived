@@ -21,7 +21,7 @@ module.exports = {
   loading: { color: '#3B8070' },
   build: {
     vendor: [
-      // 'firebase'
+
     ],
     extractCSS: true,
     postcss: { plugins: { 'postcss-custom-properties': false } },
@@ -44,6 +44,7 @@ module.exports = {
   ],
   plugins: [
     { src: '~/plugins/workbox-plugin.js', ssr: false },
-    { src: '~/plugins/firebase-plugin.js' }
+    { src: '~/plugins/firebase-plugin.js' },
+    { src: '~/plugins/firevueauth-plugin', ssr: false }
   ]
 }

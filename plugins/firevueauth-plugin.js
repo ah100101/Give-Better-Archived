@@ -9,7 +9,7 @@ const key = 'firevueauth-user'
 const firebaseAuthPlugin = {
   install: (Vue, options) => {
     Vue.prototype.$firevueauth = {
-      deleteUser: () => localforage.removeItem(key).catch(console.error),
+      deleteLocalUser: () => localforage.removeItem(key).catch(console.error),
       liveUser: undefined,
       getLocalUser: () => localforage.getItem(key).catch(console.error),
       getUser: () => {
@@ -41,6 +41,7 @@ const firebaseAuthPlugin = {
     }
 
     firebase.auth().onAuthStateChanged(user => {
+      // TODO: update vuex
       if (user) {
         Vue.prototype.$firevueauth.liveUser = {
           displayName: user.displayName,

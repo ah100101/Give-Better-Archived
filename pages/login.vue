@@ -19,6 +19,7 @@ section.container
 
 <script>
 import unauthenticatedMixin from '~/mixins/unauthenticated.js'
+import redirectAuthenticatedMixin from '~/mixins/redirect-authenticated.js'
 import localforage from 'localforage'
 import firebase from 'firebase/app'
 import auth from 'firebase/auth'
@@ -32,13 +33,6 @@ export default {
   },
   mounted: function () {
     this.handleAuthRedirect()
-
-    console.log('current user:')
-    this.$firevueauth.getUser()
-      .then(user => {
-        console.log(user)
-      })
-      .catch(console.error)
   },
   methods: {
     googleLogin: function () {
@@ -66,21 +60,24 @@ export default {
         .catch(console.error)
     },
     handleAuthRedirect: function () {
+      let state = this
       firebase
         .auth()
         .getRedirectResult()
         .then(function(result) {
-          if (!result || !result.credential || !result.user) {
-            console.debug('Invalid redirect')
-            return
-          }
-          // user is valid, do something
+          if (result && result.credential && result.user) {
+            // TODO: update vuex
+            state.$router.push({
+              path: '/feed'
+            })
+          }          
         })
         .catch(console.error)
     }
   },
   mixins: [
-    unauthenticatedMixin
+    unauthenticatedMixin,
+    redirectAuthenticatedMixin
   ]
 }
 </script>

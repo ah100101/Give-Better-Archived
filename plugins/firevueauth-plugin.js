@@ -11,19 +11,25 @@ const firebaseAuthPlugin = {
     Vue.prototype.$firevueauth = {
       deleteUser: () => localforage.removeItem(key).catch(console.error),
       liveUser: undefined,
-      localUser: () => localforage.getItem(key).catch(console.error),
+      getLocalUser: () => localforage.getItem(key).catch(console.error),
       getUser: () => {
         let state = this
         return new Promise((resolve, reject) => {
           if (state.liveUser) {
-            resolve(state.liveUser)
+            resolve({
+              user: state.liveUser,
+              local: false
+            })
           }
 
           localforage
             .getItem(key)
             .then(value => {
               if (value) {
-                resolve(JSON.parse(value))
+                resolve({
+                  user: JSON.parse(value),
+                  local: true
+                })
               }
               reject(new Error('A user is not available.'))
             })

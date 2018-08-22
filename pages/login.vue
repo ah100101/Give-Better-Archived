@@ -19,12 +19,12 @@ section.container
 
 <script>
 import unauthenticatedMixin from '~/mixins/unauthenticated.js'
-import redirectAuthenticatedMixin from '~/mixins/redirect-authenticated.js'
 import localforage from 'localforage'
 import firebase from 'firebase/app'
 import auth from 'firebase/auth'
 
 export default {
+  layout: 'login',
   asyncData (context) {
     return 
     { 
@@ -66,7 +66,16 @@ export default {
         .getRedirectResult()
         .then(function(result) {
           if (result && result.credential && result.user) {
-            // TODO: update vuex
+            state.$store.dispatch('user/setUser', {
+              displayName: user.displayName,
+              email: user.email,
+              emailVerified: user.emailVerified,
+              photoURL: user.photoURL,
+              isAnonymous: user.isAnonymous,
+              uid: user.uid,
+              providerData: user.providerData
+            })
+            state.$store.dispatch('user/setUserLocal', false)
             state.$router.push({
               path: '/feed'
             })
@@ -76,8 +85,7 @@ export default {
     }
   },
   mixins: [
-    unauthenticatedMixin,
-    redirectAuthenticatedMixin
+    unauthenticatedMixin
   ]
 }
 </script>

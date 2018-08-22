@@ -44,7 +44,6 @@ module.exports = {
   ],
   plugins: [
     { src: '~/plugins/workbox-plugin.js', ssr: false },
-    { src: '~/plugins/firebase-plugin.js' },
-    { src: '~/plugins/firevueauth-plugin', ssr: false }
+    { src: '~/plugins/firebase-plugin.js' }
   ]
 }

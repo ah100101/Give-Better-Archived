@@ -1,4 +1,5 @@
 export default {
+  layout: 'default',
   mounted: function () {
     this.setNavigation()
   },

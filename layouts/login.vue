@@ -3,12 +3,12 @@
     div(v-if='!loading')
       topnav
       nuxt
-    div(v-else)
-      | Loading
+    loadingscreen(v-else)
 </template>
 
 <script>
 import topnav from '~/components/navigation/TopNav.vue'
+import loadingscreen from '~/components/layout/LoadingScreen.vue'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
@@ -46,7 +46,8 @@ export default {
     })
   },
   components: {
-    topnav
+    topnav,
+    loadingscreen
   },
   methods: {
 
@@ -72,6 +73,6 @@ html {
 }
   
 body {
-  background-color: $light-shade;
+  background-color: $dark-accent;
 }
 </style>

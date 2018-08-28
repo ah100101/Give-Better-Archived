@@ -1,5 +1,5 @@
 <template lang='pug'>
-  div
+  .logo
     h1.title Better Gift
 </template>
 
@@ -14,17 +14,19 @@
   text-align: center;
 }
 
-.title {
-  font-family: $family-brand;
-  color: $brand;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-}
+.logo {
+  .title {
+    font-family: $family-brand;
+    color: $brand;
+    display: block;
+    font-weight: 300;
+    font-size: 100px;
+  }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  padding-bottom: 15px;
+  .subtitle {
+    font-weight: 300;
+    font-size: 42px;
+    padding-bottom: 15px;
+  }
 }
 </style>

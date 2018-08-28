@@ -1,4 +1,5 @@
 export default {
+  layout: 'authenticated',
   mounted: function () {
     this.setNavigation()
   },

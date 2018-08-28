@@ -11,7 +11,8 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Pacifico|Source+Sans+Pro' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Pacifico|Source+Sans+Pro' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500' }
     ]
   },
   css: [
@@ -20,7 +21,7 @@ module.exports = {
   loading: { color: '#3B8070' },
   build: {
     vendor: [
-      // 'firebase'
+
     ],
     extractCSS: true,
     postcss: { plugins: { 'postcss-custom-properties': false } },

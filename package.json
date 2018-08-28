@@ -24,6 +24,7 @@
     "firebase": "^5.3.1",
     "google-fonts-webpack-plugin": "^0.4.4",
     "graphql-tag": "^2.9.2",
+    "localforage": "^1.7.2",
     "ncp": "^2.0.0",
     "node-noop": "^1.0.0",
     "nuxt": "^1.4.1",

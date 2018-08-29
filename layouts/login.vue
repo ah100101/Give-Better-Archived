@@ -25,7 +25,7 @@ export default {
   mounted: function() {
     let state = this
     firebase.auth().onAuthStateChanged(user => {
-      if (user) {
+      if (user && user.uid) {
         state.$store.dispatch('user/setUser', {
           displayName: user.displayName,
           email: user.email,

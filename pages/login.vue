@@ -65,15 +65,15 @@ export default {
         .auth()
         .getRedirectResult()
         .then(function(result) {
-          if (result && result.credential && result.user) {
+          if (result && result.credential && result.user && result.user.uid) {
             state.$store.dispatch('user/setUser', {
-              displayName: user.displayName,
-              email: user.email,
-              emailVerified: user.emailVerified,
-              photoURL: user.photoURL,
-              isAnonymous: user.isAnonymous,
-              uid: user.uid,
-              providerData: user.providerData
+              displayName: result.user.displayName,
+              email: result.user.email,
+              emailVerified: result.user.emailVerified,
+              photoURL: result.user.photoURL,
+              isAnonymous: result.user.isAnonymous,
+              uid: result.user.uid,
+              providerData: result.user.providerData
             })
             state.$store.dispatch('user/setUserLocal', false)
             state.$router.push({

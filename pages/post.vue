@@ -27,6 +27,9 @@ export default {
       
     }
   },
+  mounted: function () {
+    console.debug(this.$store.getters['user/user'])
+  },
   mixins: [
     authenticatedMixin
   ],

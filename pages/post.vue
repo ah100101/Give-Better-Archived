@@ -13,12 +13,17 @@ section.container.post
             textarea.textarea(placeholder="")
         .field.is-grouped
           .control.submit
-            button.button.is-primary Post
+            button.button.is-primary(v-on:click='submit') List Gift Idea
   
 </template>  
 
 <script>
 import authenticatedMixin from '~/mixins/authenticated.js'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+
+const db = firebase.firestore()
+console.log(db)
 
 export default {
   asyncData (context) {
@@ -28,11 +33,25 @@ export default {
     }
   },
   mounted: function () {
-    console.debug(this.$store.getters['user/user'])
+
   },
   mixins: [
     authenticatedMixin
   ],
+  methods: {
+    submit: function() {
+      // db.doc('ideas/' + this.user.uid + 'test0').set({
+      //   name: 'test0',
+      //   description: 'description0'
+      // })
+      // .then((result) => {
+      //   console.debug('success!')
+      //   console.debug(result)
+      // })
+      // .catch(console.error)
+      let ref = db.doc('users/' + this.user.uid).collection('ideas').add({name:'test'})
+    }
+  },
   components: {
     
   }

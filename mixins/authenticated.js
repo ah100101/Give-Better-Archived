@@ -5,7 +5,12 @@ export default {
   },
   data () {
     return {
-      // currentUser: this.$store.getters['user/user']
+
+    }
+  },
+  computed: {
+    user: function () {
+      return this.$store.getters['user/user']
     }
   },
   methods: {

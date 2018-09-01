@@ -73,6 +73,6 @@ html {
 }
   
 body {
-  background-color: $dark-accent;
+  background-color: $light-shade;
 }
 </style>

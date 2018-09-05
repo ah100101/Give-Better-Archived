@@ -44,18 +44,6 @@ export default {
       .then(console.debug)
       .catch(console.error)
     }
-    // submit: function() {
-    //   // db.doc('ideas/' + this.user.uid + 'test0').set({
-    //   //   name: 'test0',
-    //   //   description: 'description0'
-    //   // })
-    //   // .then((result) => {
-    //   //   console.debug('success!')
-    //   //   console.debug(result)
-    //   // })
-    //   // .catch(console.error)
-    //   let ref = db.doc('users/' + this.user.uid).collection('ideas').add({name:'test'})
-    // }
   },
   components: {
     

@@ -25,7 +25,7 @@ export default {
         throw new Error('Idea undefined')
       }
 
-      if (!idea.title || !idea.description) {
+      if (!idea.url || !idea.description) {
         throw new Error('Invalid idea properties')
       }
 

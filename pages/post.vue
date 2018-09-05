@@ -6,11 +6,11 @@ section.container.post
         .field
           label.label Gift Url
           .control
-            input.input.is-success(type="text" placeholder="")
+            input.input.is-success(type="text" placeholder="" v-model="url")
         .field
-          label.label Message
+          label.label Description
           .control
-            textarea.textarea(placeholder="")
+            textarea.textarea(placeholder="" v-model="description")
         .field.is-grouped
           .control.submit
             button.button.is-primary(v-on:click='submitIdea') List Gift Idea
@@ -26,9 +26,10 @@ import 'firebase/firestore'
 const db = firebase.firestore()
 
 export default {
-  asyncData (context) {
+  data () {
     return { 
-      
+      url: '',
+      description: ''
     }
   },
   mounted: function () {
@@ -40,7 +41,7 @@ export default {
   ],
   methods: {
     submitIdea: function () {
-      this.createIdea(this.user.uid, { title: 'this looks awesome', description: ':D :D :D :D'})
+      this.createIdea(this.user.uid, { url: this.url, description: this.description})
       .then(console.debug)
       .catch(console.error)
     }

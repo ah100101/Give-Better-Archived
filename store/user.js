@@ -1,5 +1,5 @@
 export const state = () => ({
-  user: undefined,
+  user: {},
   userLocal: false
 })
 

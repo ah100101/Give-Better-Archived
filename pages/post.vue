@@ -13,12 +13,13 @@ section.container.post
             textarea.textarea(placeholder="")
         .field.is-grouped
           .control.submit
-            button.button.is-primary(v-on:click='submit') List Gift Idea
+            button.button.is-primary(v-on:click='submitIdea') List Gift Idea
   
 </template>  
 
 <script>
 import authenticatedMixin from '~/mixins/authenticated.js'
+import ideaMixin from '~/mixins/idea.js'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 
@@ -34,21 +35,27 @@ export default {
 
   },
   mixins: [
-    authenticatedMixin
+    authenticatedMixin,
+    ideaMixin
   ],
   methods: {
-    submit: function() {
-      // db.doc('ideas/' + this.user.uid + 'test0').set({
-      //   name: 'test0',
-      //   description: 'description0'
-      // })
-      // .then((result) => {
-      //   console.debug('success!')
-      //   console.debug(result)
-      // })
-      // .catch(console.error)
-      let ref = db.doc('users/' + this.user.uid).collection('ideas').add({name:'test'})
+    submitIdea: function () {
+      this.createIdea(this.user.uid, { title: 'this looks awesome', description: ':D :D :D :D'})
+      .then(console.debug)
+      .catch(console.error)
     }
+    // submit: function() {
+    //   // db.doc('ideas/' + this.user.uid + 'test0').set({
+    //   //   name: 'test0',
+    //   //   description: 'description0'
+    //   // })
+    //   // .then((result) => {
+    //   //   console.debug('success!')
+    //   //   console.debug(result)
+    //   // })
+    //   // .catch(console.error)
+    //   let ref = db.doc('users/' + this.user.uid).collection('ideas').add({name:'test'})
+    // }
   },
   components: {
     

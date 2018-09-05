@@ -17,6 +17,20 @@ export default {
   },
   methods: {
     createIdea: function (uid, idea) {
+      if (!uid) {
+        throw new Error('Invalid User ID provided')
+      }
+
+      if (!idea) {
+        throw new Error('Idea undefined')
+      }
+
+      if (!idea.title || !idea.description) {
+        throw new Error('Invalid idea properties')
+      }
+
+      idea.timestamp = new Date()
+
       return db
         .doc('users/' + uid)
         .collection('ideas')

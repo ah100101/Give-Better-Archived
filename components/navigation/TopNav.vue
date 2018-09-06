@@ -30,6 +30,10 @@
               v-html='item.title'
               v-on:click='sendTo(item.url)'
               )
+            a.navbar-item(
+              v-if='showSignOut'
+              v-on:click='signUserOut()'
+              ) Sign Out
           .navbar-end
             .navbar-item
     modal(
@@ -84,11 +88,22 @@ export default {
       } else if (this.postDisplayed) {
         this.postDisplayed = false
       }
+    },
+    signUserOut: function () {
+      this.$store.dispatch('user/signOut')
+      // TODO: don't forget to clear user out from local storage as well
+
+      this.$router.go({
+        path: '/'
+      })
     }
   },
   computed: {
     navItems: function () {
       return this.$store.getters['navigation/current']
+    },
+    showSignOut: function () {
+      return this.$store.getters['navigation/showSignOut']
     }
   }
 }

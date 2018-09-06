@@ -65,6 +65,7 @@ export default {
         .auth()
         .getRedirectResult()
         .then(function(result) {
+          // TODO: unnecessary since this doesn't get hit due to layout logic
           if (result && result.credential && result.user && result.user.uid) {
             state.$store.dispatch('user/setUser', {
               displayName: result.user.displayName,

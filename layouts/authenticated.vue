@@ -9,6 +9,7 @@
 <script>
 import topnav from '~/components/navigation/TopNav.vue'
 import loadingscreen from '~/components/layout/LoadingScreen.vue'
+import userMixin from '~/mixins/user.js'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
@@ -26,17 +27,21 @@ export default {
     let state = this
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        state.$store.dispatch('user/setUser', {
+        const appUser = {
           displayName: user.displayName,
           email: user.email,
           emailVerified: user.emailVerified,
           photoURL: user.photoURL,
           isAnonymous: user.isAnonymous,
-          uid: user.uid,
-          providerData: user.providerData
-        })
+          uid: user.uid        
+        }
+
+        state.$store.dispatch('user/setUser', appUser)
         state.$store.dispatch('user/setUserLocal', false)
+        
         state.loading = false
+        
+        state.setUser(appUser)
       } else {
         state.$router.push({
           path: '/login'
@@ -48,6 +53,9 @@ export default {
     topnav,
     loadingscreen
   },
+  mixins: [
+    userMixin
+  ],
   methods: {
 
   },

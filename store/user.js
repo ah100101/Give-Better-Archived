@@ -30,7 +30,7 @@ export const actions = {
       .catch(console.error)
 
     context.commit('setUser', undefined)
-    context.commit('setUserLocal', undefined)
+    context.commit('setUserLocal', false)
   }
 }
 

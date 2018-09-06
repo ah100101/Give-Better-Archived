@@ -6,6 +6,7 @@ export default {
   methods: {
     setNavigation: function () {
       this.$store.dispatch('navigation/setNavigation', 'unauthenticated')
+      this.$store.dispatch('navigation/hideSignOut')
     }
   }
 }

@@ -1,3 +1,6 @@
+import firebase from 'firebase/app'
+import auth from 'firebase/auth'
+
 export const state = () => ({
   user: {},
   userLocal: false
@@ -18,6 +21,16 @@ export const actions = {
   },
   setUserLocal (context, local) {
     context.commit('setUserLocal', local)
+  },
+  signOut (context) {
+    firebase
+      .auth()
+      .signOut()
+      .then(console.debug)
+      .catch(console.error)
+
+    context.commit('setUser', undefined)
+    context.commit('setUserLocal', undefined)
   }
 }
 

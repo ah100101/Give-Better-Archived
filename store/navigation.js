@@ -1,5 +1,6 @@
 export const state = () => ({
   current: [],
+  showSignOut: false,
   unauthenticated: [
     {
       title: 'Login',
@@ -42,24 +43,24 @@ export const state = () => ({
       title: 'Find',
       url: '/search',
       active: false
-    },
-    {
-      title: 'Logout',
-      url: '/logout',
-      active: false
     }
   ]
 })
 
 export const getters = {
-  current: state => {
-    return state.current
-  }
+  current: state => state.current,
+  showSignOut: state => state.showSignOut
 }
 
 export const actions = {
   setNavigation (context, navigation) {
     context.commit('setNavigation', navigation)
+  },
+  showSignOut (context) {
+    context.commit('setSignOut', true)
+  },
+  hideSignOut (context) {
+    context.commit('setSignOut', false)
   }
 }
 
@@ -70,5 +71,8 @@ export const mutations = {
     } else {
       console.error('invalid navigation key provided: ' + navigation)
     }
+  },
+  setSignOut (state, show) {
+    state.showSignOut = show
   }
 }

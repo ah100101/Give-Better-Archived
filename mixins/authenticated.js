@@ -16,6 +16,7 @@ export default {
   methods: {
     setNavigation: function () {
       this.$store.dispatch('navigation/setNavigation', 'authenticated')
+      this.$store.dispatch('navigation/showSignOut')
     }
   }
 }

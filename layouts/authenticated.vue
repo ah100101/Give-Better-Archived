@@ -26,6 +26,7 @@ export default {
   mounted: function() {
     let state = this
     firebase.auth().onAuthStateChanged(user => {
+      // TODO: check if it has been updated recently
       if (user) {
         const appUser = {
           displayName: user.displayName,
